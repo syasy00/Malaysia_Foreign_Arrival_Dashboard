@@ -4,3 +4,5 @@ plotly
 numpy
 scikit-learn
 networkx
+scipy==1.10.1
+statsmodels==0.14.0
