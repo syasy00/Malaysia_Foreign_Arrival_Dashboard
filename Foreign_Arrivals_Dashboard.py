@@ -708,20 +708,7 @@ with tabs[4]:
                 model.fit(X_train, y_train)
                 y_test_pred = model.predict(X_test)
 
-                # --- Evaluate model performance ---
-                mae = mean_absolute_error(y_test, y_test_pred)
-                r2 = r2_score(y_test, y_test_pred)
-
-                # --- Display performance results ---
-                st.markdown("#### Model Evaluation on Past Data")
-                st.markdown(f"- <b>Mean Absolute Error (MAE):</b> <span style='color:#1e40af'>{mae:,.2f}</span>", unsafe_allow_html=True)
-                st.markdown(f"- <b>R² Score:</b> <span style='color:#1e40af'>{r2:.3f}</span>", unsafe_allow_html=True)
-                perf_df = pd.DataFrame({
-                    'Metric': ['Mean Absolute Error (MAE)', 'R² Score'],
-                    'Value': [f"{mae:,.2f}", f"{r2:.3f}"]
-                })
-                st.table(perf_df)
-
+            
                 # --- Fit on ALL data for future forecast ---
                 X = monthly_arrivals['month_num'].values.reshape(-1, 1)
                 y = monthly_arrivals['arrivals'].values
